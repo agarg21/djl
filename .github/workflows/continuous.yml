@@ -115,3 +115,7 @@ jobs:
           files: ./jacoco/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml
           fail_ci_if_error: false
           path_to_write_report: ./codecov_report.txt
+      - name: Stop Gradle daemon
+        if: always()
+        run: ./gradlew --stop
+        shell: bash
