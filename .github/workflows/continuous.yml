@@ -43,3 +43,7 @@ jobs:
           path: |
             ${{ github.workspace }}/**/build/reports/**/*
             !${{ github.workspace }}/**/build/reports/jacoco/*
+      - name: Stop Gradle daemon
+        if: always()
+        run: ./gradlew --stop
+        shell: bash
